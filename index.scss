@@ -37,10 +37,28 @@
     width: 100vw;
     height: 100vh;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     flex-wrap: wrap;
     row-gap: 3vh;
     overflow: hidden;
+
+    @media(min-aspect-ratio: 1/1) {
+        display: none;
+    }
+
+    .phone {
+        max-height: 50vh;
+    }
+
+    .headerFirst {
+        max-height: 25vh;
+    }
+
+    .buttonFirst,
+    .logo {
+        max-height: 8vh;
+    }
+
 }
 
 .element {
@@ -53,15 +71,103 @@
     }
 }
 
-#phone {
-    max-height: 50vh;
+.elementsHorizontal {
+    display: none;
+
+    @media(min-aspect-ratio: 1/1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 2;
+        overflow: hidden;
+        column-gap: 5vw;
+    }
+
+    &_left {
+        width: 50vw;
+    }
+
+    &_right {
+        width: 45vw;
+
+        img {
+            max-width: 45vw;
+        }
+    }
+
+    &_left {
+        display: flex;
+        justify-content: center;
+
+        .phone2 {
+            height: 120vh;
+            position: relative;
+            top: 20vh;
+        }
+    }
+
+    &_right {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 5vh;
+        padding-right: 2vw;
+
+    }
+
 }
 
-#headerFirst {
-    max-height: 25vh;
-}
 
-#buttonFirst,
-#logo {
-    max-height: 8vh;
+
+.decor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+
+    .coin1_wrapper {
+        left: 35vw;
+        top: -15vh;
+
+        img {
+            width: 15vw;
+        }
+    }
+
+    .coin2_wrapper {
+        left: -35vw;
+        top: 15vh;
+
+        img {
+            width: 17vw;
+            transform: rotate(90deg);
+        }
+    }
+
+    .cube1_wrapper {
+        left: -35vw;
+        top: -20vh;
+
+        img {
+            width: 20vw;
+        }
+    }
+
+    .cube2_wrapper {
+        left: 35vw;
+        top: 25vh;
+
+        img {
+            width: 18vw;
+        }
+    }
 }
