@@ -11,22 +11,46 @@
 }
 
 .bg {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    z-index: 0;
-    overflow: hidden;
+    @media(min-aspect-ratio: 1/1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 0;
+        overflow: hidden;
 
-    .free_img {
+        .free_img {
+            align-items: baseline;
+        }
+
+        img {
+            min-width: 105vw;
+            min-height: 105vh;
+        }
+    }
+
+    @media(max-aspect-ratio: 1/1) {
+        display: flex;
+        justify-content: center;
         align-items: baseline;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 0;
+        overflow: hidden;
+
+        .free_img {
+            align-items: baseline;
+        }
+
+        img {
+            min-width: 100vw;
+        }
     }
 
-    img {
-        min-width: 100vw;
-    }
+
 }
 
 .elements {
@@ -46,11 +70,18 @@
         display: none;
     }
 
-    .phone {
-        max-height: 50vh;
+    .phoneHolder {
+        max-height: 45vh;
     }
 
-    .headerFirst {
+    .phone2,
+    .phone3,
+    .phone4,
+    .phone5 {
+        max-height: 65vh;
+    }
+
+    .headerHolder {
         max-height: 25vh;
     }
 
@@ -67,7 +98,7 @@
     justify-content: center;
 
     img {
-        max-width: 95vw;
+        max-width: 90vw;
     }
 }
 
@@ -103,7 +134,7 @@
         display: flex;
         justify-content: center;
 
-        .phone2 {
+        .phoneHolder {
             height: 120vh;
             position: relative;
             top: 20vh;
@@ -117,6 +148,18 @@
         row-gap: 5vh;
         padding-right: 2vw;
 
+    }
+
+    .logo {
+        max-height: 20vh;
+    }
+
+    .headerHolder {
+        max-height: 40vh;
+    }
+
+    .buttonFirst {
+        max-height: 20vh;
     }
 
 }
@@ -134,40 +177,140 @@
     z-index: 1;
     overflow: hidden;
 
-    .coin1_wrapper {
-        left: 35vw;
-        top: -15vh;
+    @media(min-aspect-ratio: 1/1) {
+        .coin1_wrapper {
+            left: 43vw;
+            top: -35vh;
 
-        img {
-            width: 15vw;
+            img {
+                width: 15vw;
+            }
+        }
+
+        .coin2_wrapper {
+            left: -1vw;
+            top: 25vh;
+
+            img {
+                width: 17vw;
+                transform: rotate(90deg);
+            }
+        }
+
+        .cube1_wrapper {
+            left: 43vw;
+            top: 33vh;
+
+            img {
+                width: 20vw;
+            }
+        }
+
+        .cube2_wrapper {
+            left: -43vw;
+            top: -29vh;
+
+            img {
+                width: 18vw;
+            }
         }
     }
 
-    .coin2_wrapper {
-        left: -35vw;
-        top: 15vh;
+    @media(max-aspect-ratio: 1/1) {
+        .coin1_wrapper {
+            left: 35vw;
+            top: -15vh;
 
-        img {
-            width: 17vw;
-            transform: rotate(90deg);
+            img {
+                width: 15vw;
+            }
+        }
+
+        .coin2_wrapper {
+            left: -35vw;
+            top: 15vh;
+
+            img {
+                width: 17vw;
+                transform: rotate(90deg);
+            }
+        }
+
+        .cube1_wrapper {
+            left: -35vw;
+            top: -20vh;
+
+            img {
+                width: 20vw;
+            }
+        }
+
+        .cube2_wrapper {
+            left: 35vw;
+            top: 25vh;
+
+            img {
+                width: 18vw;
+            }
         }
     }
+}
 
-    .cube1_wrapper {
-        left: -35vw;
-        top: -20vh;
-
-        img {
-            width: 20vw;
-        }
+#fone {
+    @media(min-aspect-ratio: 1/1) {
+        display: none;
     }
 
-    .cube2_wrapper {
-        left: 35vw;
-        top: 25vh;
-
-        img {
-            width: 18vw;
-        }
+    @media(max-aspect-ratio: 1/1) {
+        display: block;
     }
+}
+
+#foneHorizontal {
+    @media(min-aspect-ratio: 1/1) {
+        display: block;
+    }
+
+    @media(max-aspect-ratio: 1/1) {
+        display: none;
+    }
+}
+
+
+.coin1_wrapper {
+    animation: 10s coin1_wrapper_anim infinite alternate;
+}
+
+@keyframes coin1_wrapper_anim {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(10px, 60px) rotate(10deg);
+    }
+}
+
+.cube1_wrapper {
+    animation: 22s coin1_wrapper_anim infinite alternate;
+}
+
+@keyframes coin2_wrapper_anim {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-10px, -60px) rotate(-10deg);
+    }
+}
+
+
+.coin2_wrapper {
+    animation: 12s coin1_wrapper_anim infinite alternate;
+}
+
+
+.cube2_wrapper {
+    animation: 19s coin2_wrapper_anim infinite alternate;
 }
